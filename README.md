@@ -1,5 +1,6 @@
 **asn2ip** is a command-line tool that retrieves and displays AS information.
 # Features
+
 - Uses [bgpview.io](https://bgpview.io) api
 - Query by ASN for information
 	- IPv4 and IPv6 prefixes.
@@ -10,6 +11,7 @@
 	- TEXT formatted similar to [asnmap](https://github.com/projectdiscovery/asnmap) 
 	- STDOUT
 ## Why does this *seem* like asnmap?
+
 We love [asnmap](https://github.com/projectdiscovery/asnmap), but we didn't want to use the free IPtoASN database that was being used. We've observed different results when compared with data from  [bgpview.io](https://bgpview.io) and  [bgp.he.net](https://bgp.he.net/) At some point, I'm sure we'll want to merge this option into asnmap, but for now this is where we landed.
 ## Installation
 
@@ -19,7 +21,9 @@ We love [asnmap](https://github.com/projectdiscovery/asnmap), but we didn't want
     ```go build```
 ## Usage
 
-asn2ip -a ASNUMBER [-ipv4 | -ipv6] [-v] | -i IPADDRESS [-v] | -p CIDR [-v]
+`asn2ip -a ASNUMBER [-ipv4 | -ipv6] [-v] | -i IPADDRESS [-v] | -p CIDR [-v]`
+`Example: -a AS6431 -ipv4 -debug | -i 12.153.241.125 -debug | -p 1.2.3.0/24 -debug`
+
 ### Examples
 
 - Query ASN and display IPv4 prefixes:
@@ -31,16 +35,17 @@ asn2ip -a ASNUMBER [-ipv4 | -ipv6] [-v] | -i IPADDRESS [-v] | -p CIDR [-v]
 - Query CIDR prefix:
   `asn2ip -p 8.8.8.0/24`
 ## Flags
-
-  -a, -a  ASN to query, e.g., AS6431
-  -i, -i  IP address to query
-  -ipv4, -i  Display only IPv4 prefixes
-  -ipv6, -i  Display only IPv6 prefixes
-  -p, -p  CIDR prefix to query
-  -v, -v  Verbose output
-  -version, -v  Print the version and exit
+`
+Flags:
+  -a, -a	ASN to query, e.g., AS6431
+  -i, -i	IP address to query
+  -ipv4, -i	Display only IPv4 prefixes
+  -ipv6, -i	Display only IPv6 prefixes
+  -p, -p	CIDR prefix to query
+  -debug, -d	Print debug information including raw requests and responses
+  -version, -v	Print the version and exit
+`
 ## Development
-
 To contribute to the project:
 
 1. Fork the repository.
