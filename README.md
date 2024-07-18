@@ -16,26 +16,25 @@ We love [asnmap](https://github.com/projectdiscovery/asnmap), but we didn't want
 ## Installation
 
 1. Clone the repository:
-    ```git clone https://github.com/nickpending/asn2ip.git```
+```console
+git clone https://github.com/nickpending/asn2ip.git
+```
 2. Build the project:
-    ```go build```
+```console
+go build
+```
+
 ## Usage
 
-`asn2ip -a ASNUMBER [-ipv4 | -ipv6] [-v] | -i IPADDRESS [-v] | -p CIDR [-v]`
-`Example: -a AS6431 -ipv4 -debug | -i 12.153.241.125 -debug | -p 1.2.3.0/24 -debug`
+```console
+asn2ip -a ASNUMBER [-ipv4 | -ipv6] [-v] | -i IPADDRESS [-v] | -p CIDR [-v]
+```
+```console
+Example: -a AS6431 -ipv4 -debug | -i 12.153.241.125 -debug | -p 1.2.3.0/24 -debug
+```
 
-### Examples
-
-- Query ASN and display IPv4 prefixes:
-  `asn2ip -a AS15169 -ipv4`
-
-- Query IP address:
-  `asn2ip -i 8.8.8.8`
-
-- Query CIDR prefix:
-  `asn2ip -p 8.8.8.0/24`
 ## Flags
-`
+```console
 Flags:
   -a, -a	ASN to query, e.g., AS6431
   -i, -i	IP address to query
@@ -44,7 +43,25 @@ Flags:
   -p, -p	CIDR prefix to query
   -debug, -d	Print debug information including raw requests and responses
   -version, -v	Print the version and exit
-`
+```
+### Examples
+
+- Query ASN and display IPv4 prefixes:
+
+```console
+asn2ip -a AS15169 -ipv4
+```
+- Query IP address:
+
+```console
+asn2ip -i 8.8.8.8
+```
+- Query CIDR prefix:
+
+```console
+asn2ip -p 8.8.8.0/24
+```
+
 ## Development
 To contribute to the project:
 

@@ -5,6 +5,7 @@
 *.so
 *.dylib
 *.test
+asn2ip
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
