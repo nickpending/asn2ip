@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"asn2ip/util"
 )
 
@@ -12,9 +11,9 @@ type ASNDetails struct {
 	} `json:"data"`
 }
 
-func FetchASNDetails(asn string) (*ASNDetails, error) {
-	url := fmt.Sprintf("https://api.bgpview.io/asn/%s/prefixes", asn)
+func FetchASNDetails(asn string, debugFlag bool) (*ASNDetails, string, string, error) {
+	url := "https://api.bgpview.io/asn/" + asn + "/prefixes"
 	var details ASNDetails
-	err := util.FetchDetails(url, &details)
-	return &details, err
+	rawRequest, rawResponse, err := util.FetchDetails(url, &details, debugFlag)
+	return &details, rawRequest, rawResponse, err
 }

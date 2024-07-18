@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"asn2ip/util"
 )
 
@@ -16,10 +15,9 @@ type PrefixInfo struct {
 	} `json:"data"`
 }
 
-func FetchPrefixDetails(prefix string) (*PrefixInfo, error) {
-	url := fmt.Sprintf("https://api.bgpview.io/prefix/%s", prefix)
+func FetchPrefixDetails(prefix string, debugFlag bool) (*PrefixInfo, string, string, error) {
+	url := "https://api.bgpview.io/prefix/" + prefix
 	var details PrefixInfo
-	err := util.FetchDetails(url, &details)
-	return &details, err
+	rawRequest, rawResponse, err := util.FetchDetails(url, &details, debugFlag)
+	return &details, rawRequest, rawResponse, err
 }
-
